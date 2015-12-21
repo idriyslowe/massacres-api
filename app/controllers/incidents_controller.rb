@@ -6,10 +6,10 @@ class IncidentsController < ApplicationController
     @incidents = Incident.all
   end
   def edit
-    @incident = Incident.find_by(:id params[:id])
+    @incident = Incident.find_by(id: params[:id])
   end
   def update
-    @incident = Incident.find_by(:id params[:id])
+    @incident = Incident.find_by(id: params[:id])
     @incident.update(
       murderer_first_name: params[:murderer_first_name],
       murderer_last_name: params[:murderer_last_name],
