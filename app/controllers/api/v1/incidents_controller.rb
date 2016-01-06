@@ -1,4 +1,5 @@
-class IncidentsController < ApplicationController
+class Api::V1::IncidentsController < ApplicationController
+
   def show
     @incident = Incident.find_by(id: params[:id])
   end
@@ -21,7 +22,7 @@ class IncidentsController < ApplicationController
       )
   end
   def create
-    @incident = Incident.create(
+    @incident = Incident.new(
       murderer_first_name: params[:murderer_first_name],
       murderer_last_name: params[:murderer_last_name],
       birthdate: params[:birthdate],
@@ -30,7 +31,10 @@ class IncidentsController < ApplicationController
       number_of_victims: params[:number_of_victims],
       sentence: params[:sentence]
       )
-    render :show
+    if @incident.save
+    else
+      render json: { errors: @incident.errors.full_messages}, status: 422
+    end
   end
   def destroy
     incident = Incident.find_by(id: params[:id])

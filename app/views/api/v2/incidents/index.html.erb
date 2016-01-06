@@ -1,0 +1,52 @@
+<div ng-app="app">
+  <div ng-controller="murders" ng-init="setup()">
+    <h2>Murdery Incidents</h2>
+
+  <div>
+    <ul> 
+      <li ng-repeat="error in errors">{{ error }}</li>
+    </ul>
+    <div>
+      <label>First Name:</label>
+      <input ng-model="firstname">
+    </div>
+    <div>
+      <label>Last Name:</label>
+      <input ng-model="lastname">
+    </div>
+    <div>
+      <label>Birthdate:</label>
+      <input ng-model="birthdate">
+    </div>
+    <div>
+      <label>Location:</label>
+      <input ng-model="location">
+    </div>
+    <div>
+      <label>Weapon:</label>
+      <input ng-model="weapon">
+    </div>
+    <div>
+      <label>Victims:</label>
+      <input ng-model="victims">
+    </div>
+    <div>
+      <label>Sentence:</label>
+      <input ng-model="sentence">
+    </div>
+    <div>
+      <button ng-click="addIncident(firstname, lastname, birthdate, location, weapon, victims, sentence)">Submit</button>
+    </div>
+  </div>
+
+  <div ng-repeat="incident in incidents">
+    <p>Murderer's full name: {{ incident.murderer_first_name }} {{ incident.murderer_last_name }}</p>
+    <p>Murderer's birthdate: {{ incident.birthdate }}</p>
+    <p>Incident location: {{ incident.location }}</p>
+    <p>Murderer weapon: {{ incident.weapon }}</p>
+    <p>Number of victims: {{ incident.number_of_victims }}</p>
+    <p>Sentence: {{ incident.sentence }}</p>
+    <br>
+  </div>
+    
+</div>
