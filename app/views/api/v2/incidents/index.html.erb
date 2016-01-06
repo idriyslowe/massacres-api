@@ -38,8 +38,16 @@
       <button ng-click="addIncident(firstname, lastname, birthdate, location, weapon, victims, sentence)">Submit</button>
     </div>
   </div>
-
-  <div ng-repeat="incident in incidents">
+  <div>
+    <label>Search by Name</label>
+    <input ng-model="nameFilter">
+  </div>
+  <div>
+    <button ng-click="sortBy('murderer_first_name')">Sort by First Name</button>
+    <button ng-click="sortBy('murderer_last_name')">Sort by Last Name</button>
+  </div>
+  <hr>
+  <div ng-repeat="incident in incidents | filter: { murderer_first_name: nameFilter} | orderBy: sortAttribute : sortDescending">
     <p>Murderer's full name: {{ incident.murderer_first_name }} {{ incident.murderer_last_name }}</p>
     <p>Murderer's birthdate: {{ incident.birthdate }}</p>
     <p>Incident location: {{ incident.location }}</p>
