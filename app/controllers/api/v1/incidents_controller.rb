@@ -33,7 +33,7 @@ class Api::V1::IncidentsController < ApplicationController
       )
     if @incident.save
     else
-      render json: { errors: @incident.errors.full_messages}, status: 422
+      render json: { errors: @incident.errors.full_messages }, status: 422
     end
   end
   def destroy

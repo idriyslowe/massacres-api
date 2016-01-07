@@ -28,7 +28,7 @@
     };
 
     $scope.sortBy = function(inputSortAttribute) {
-      if(inputSortAttribute !== $scope.sortAttribute) {
+      if (inputSortAttribute !== $scope.sortAttribute) {
         $scope.sortDescending = false;
       } else {
         $scope.sortDescending = !$scope.sortDescending;
