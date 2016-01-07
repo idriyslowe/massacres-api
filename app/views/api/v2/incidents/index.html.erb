@@ -46,15 +46,26 @@
     <button ng-click="sortBy('murderer_first_name')">Sort by First Name</button>
     <button ng-click="sortBy('murderer_last_name')">Sort by Last Name</button>
   </div>
-  <hr>
-  <div ng-repeat="incident in incidents | filter: { murderer_first_name: nameFilter} | orderBy: sortAttribute : sortDescending">
-    <p>Murderer's full name: {{ incident.murderer_first_name }} {{ incident.murderer_last_name }}</p>
-    <p>Murderer's birthdate: {{ incident.birthdate }}</p>
-    <p>Incident location: {{ incident.location }}</p>
-    <p>Murderer weapon: {{ incident.weapon }}</p>
-    <p>Number of victims: {{ incident.number_of_victims }}</p>
-    <p>Sentence: {{ incident.sentence }}</p>
-    <br>
-  </div>
+
+  <table border="1">
+    <tr>
+      <th>Murderer's First Name</th>
+      <th>Murderer's Last Name</th> 
+      <th>Murderer's Birthdate</th>
+      <th>Incident Location</th>
+      <th>Murderer Weapon</th>
+      <th>Number of Victims</th>
+      <th>Murderer's Sentence</th>
+    </tr>
+    <tr ng-repeat="incident in incidents | filter: { murderer_first_name: nameFilter} | orderBy: sortAttribute : sortDescending">
+      <td>{{ incident.murderer_first_name }}</td>
+      <td>{{ incident.murderer_last_name }}</td>
+      <td>{{ incident.birthdate }}</td>
+      <td>{{ incident.location }}</td>
+      <td>{{ incident.weapon }}</td>
+      <td>{{ incident.number_of_victims }}</td>
+      <td>{{ incident.sentence }}</td>
+    </tr>
+  </table>
     
 </div>
